@@ -100,7 +100,7 @@ theme: yilia
 
 deploy:
   type: git
-  repository: https://github.com/ReaganLi/reaganli.github.io.git
+  repository: https://github.com/ReaganLi/ReaganLi.github.io.git
   branch: dev
 
 jsonContent:
