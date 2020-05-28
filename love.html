@@ -129,7 +129,7 @@
     .this-div{
 
 
-        background-image: -webkit-linear-gradient(left, rgba(150, 0, 44, 0.96), #e60078 25%, #96007b 25%, #e66b00 25%, #147B96 25%);
+        background-image: -webkit-linear-gradient(left, rgb(230, 52, 52), #FFC1C1 25%, #FFA54F 25%, #FF7F50 25%, #FF4500 25%);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         -webkit-background-size: 200% 100%;
@@ -142,12 +142,12 @@
     .timer-div{
 
 
-         background-image: -webkit-linear-gradient(left, rgb(228, 255, 0), #e6d800 25%, #967b00 25%, #e67600 25%, #147B96 25%);
+         background-image: -webkit-linear-gradient(left, rgb(0,153,255), #00FF66 25%, #00FFFF 25%, #0099FF 25%, #147B96 25%);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         -webkit-background-size: 200% 100%;
         -webkit-animation:  maskedAnimation 4s infinite linear;
-        font-size: 150%;
+        font-size: 100%;
         font-family: 'Love Ya Like A Sister', cursive;
         font-weight: 800;
     }
@@ -160,7 +160,7 @@
         -webkit-background-clip: text;
         -webkit-background-size: 200% 100%;
         -webkit-animation:  maskedAnimation 4s infinite linear;
-        font-size: 100%;
+        font-size: 150%;
         font-family: 'Love Ya Like A Sister', cursive;
         font-weight: 800;
     }
@@ -205,23 +205,40 @@
 
 
         <div class="this-div">
-            庚书&锐宝 一起走过了
+            庚书&锐宝 时光记录
+        </div>
+
+        <div class="dsc-div">
+            一起走过的和正在走的时光
         </div>
 
         <div class="timer-div">
+            从2017-11-25在一起到现在一起走过了<br>
+            <b id="startD"></b> 天 <b id="startH"></b> 小时 <b id="startM"></b> 分钟 <b id="startS"></b> 秒
+        </div>
+        <br>
+        <div class="timer-div">
+            从2019-02-02领证到现在一起走过了<br>
             <b id="d"></b> 天 <b id="h"></b> 小时 <b id="m"></b> 分钟 <b id="s"></b> 秒
         </div>
-        
-        <div class="dsc-div"> 
-               从2019年02月02日 ==> 一辈子
+        <br>
+        <div class="timer-div">
+            从2019-04-30婚礼到现在走过了<br>
+            <b id="weddingD"></b> 天 <b id="weddingH"></b> 小时 <b id="weddingM"></b> 分钟 <b id="weddingS"></b> 秒
         </div>
-     
-
+       
         <div class="heart">
             <div class='topLeft'></div>
             <div class='topRight'></div>
             <div class='bottom'></div>
         </div>
+
+        <br>
+        <br>
+        <div class="timer-div">
+            小十安在慢慢长大<br>
+            <b id="babyD"></b> 天 <b id="babyH"></b> 小时 <b id="babyM"></b> 分钟 <b id="babyS"></b> 秒
+        </div>  
 
     </div>
 
@@ -243,13 +260,85 @@
         if (s < 10) {
             s = "0" + s;
         }
-        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24)+30;
+        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24)+28;
         document.getElementById('h').innerHTML = h;
         document.getElementById('m').innerHTML = m;
         document.getElementById('s').innerHTML = s;
     }
+    function startTimer() {
+        var start = new Date(2017, 11, 25); // 2017.11.25
+        var t = new Date() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {
+            h = "0" + h;
+        }
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) {
+            m = "0" + m;
+        }
+
+        var s = ~~(t / 1000 % 60);
+        if (s < 10) {
+            s = "0" + s;
+        }
+        document.getElementById('startD').innerHTML = ~~(t / 1000 / 60 / 60 / 24)+30;
+        document.getElementById('startH').innerHTML = h;
+        document.getElementById('startM').innerHTML = m;
+        document.getElementById('startS').innerHTML = s;
+    }
+    function weddingTimer() {
+        var start = new Date(2019, 4, 30); // 2019.4.30
+        var t = new Date() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {
+            h = "0" + h;
+        }
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) {
+            m = "0" + m;
+        }
+
+        var s = ~~(t / 1000 % 60);
+        if (s < 10) {
+            s = "0" + s;
+        }
+        document.getElementById('weddingD').innerHTML = ~~(t / 1000 / 60 / 60 / 24)+30;
+        document.getElementById('weddingH').innerHTML = h;
+        document.getElementById('weddingM').innerHTML = m;
+        document.getElementById('weddingS').innerHTML = s;
+    }
+    function babyTimer() {
+        var start = new Date(2019, 11, 19); // 2019.11.19
+        var t = new Date() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {
+            h = "0" + h;
+        }
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) {
+            m = "0" + m;
+        }
+
+        var s = ~~(t / 1000 % 60);
+        if (s < 10) {
+            s = "0" + s;
+        }
+        document.getElementById('babyD').innerHTML = ~~(t / 1000 / 60 / 60 / 24)+30;
+        document.getElementById('babyH').innerHTML = h;
+        document.getElementById('babyM').innerHTML = m;
+        document.getElementById('babyS').innerHTML = s;
+    }
     timer();
     setInterval(timer, 1000);
+
+    startTimer();
+    setInterval(startTimer, 1000);
+
+    weddingTimer();
+    setInterval(weddingTimer, 1000);
+
+    babyTimer();
+    setInterval(babyTimer, 1000);
 
 </script>
 
